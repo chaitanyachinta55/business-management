@@ -15,7 +15,7 @@ class tableStructure extends Component{
             headRows : props.headerRows,
             contentRows : props.contentRows,
             page : 0,
-            rowsPerPage : 5,
+            rowsPerPage : 2,
             order : 'asc',
             orderBy : null,
             pagedRecords : []
@@ -71,7 +71,7 @@ class tableStructure extends Component{
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {this.props.contentRows.map((row,contentIndex) => (
+                        {this.props.contentRows.slice(page*rowsPerPage , page*rowsPerPage+rowsPerPage).map((row,contentIndex) => (
                             <TableRow key = {row.field}>
                                 {headRows.map((fields , fieldIndex) => (
                                     <TableCell style = {{ width : fields.width}}>
@@ -82,6 +82,16 @@ class tableStructure extends Component{
                         ))}
                     </TableBody>
                 </Table>
+                <TablePagination
+                    component = "div"
+                    count = {this.props.contentRows.length}
+                    labelRowsPerPage = 'Rows Per Page'
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[1,2,3,4]}
+                    page = {page}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                />
             </div>
         )
     }
