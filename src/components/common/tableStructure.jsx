@@ -10,7 +10,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 class tableStructure extends Component{
 
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             headRows : props.headerRows,
             contentRows : props.contentRows,
@@ -19,7 +19,7 @@ class tableStructure extends Component{
             order : 'asc',
             orderBy : null,
             pagedRecords : []
-        }
+        };
     }
 
     static getDerivedStateFomProps(props , state){
@@ -70,10 +70,17 @@ class tableStructure extends Component{
                             )}
                         </TableRow>
                     </TableHead>
+
                     <TableBody>
                         {this.props.contentRows.slice(page*rowsPerPage , page*rowsPerPage+rowsPerPage).map((row,contentIndex) => (
                             <TableRow key = {row.field}>
                                 {headRows.map((fields , fieldIndex) => (
+                                    fields.type && fields.type === 'link'?
+                                    <TableCell style = {{ width : fields.width}} id = {row.id}>
+                                        {/* <div><a href="#" onClick={() => this.props.handleOnClick(row)}> {row[fields.field]} </a></div> */}
+                                        <div onClick={() => this.props.handleOnClick(row)}> {row[fields.field]}</div>
+                                    </TableCell>
+                                    :
                                     <TableCell style = {{ width : fields.width}}>
                                         <div>{row[fields.field]}</div>
                                     </TableCell>
