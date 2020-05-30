@@ -1,11 +1,14 @@
 .dashboard-container{
+    height : 100vh;
+    overflow: auto;
+    
     .pageStyle{
         padding-top: 5px;
         padding-left: 5px;
         padding-right: 5px;
         padding-bottom: 10px;
-        width: 8vw;
-        height: 12vh;
+        width: 100px;
+        height: 80px;
         border-radius: 10px;
     }
 }

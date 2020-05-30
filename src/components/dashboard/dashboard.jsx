@@ -4,7 +4,17 @@ import { Paper } from '@material-ui/core';
 var dashboardDB = {
     'Processed Materials' : {
         'Idli Pindi' : '4 KG',
-        'Dosa Pindi' : '3 KG'
+        'Dosa Pindi' : '3 KG',
+        'Idli Pindi 2' : '4 KG',
+        'Dosa Pindi 2' : '3 KG',
+        'Idli Pindi 3' : '4 KG',
+        'Dosa Pindi 3' : '3 KG',
+        'Idli Pindi 4' : '4 KG',
+        'Dosa Pindi 4' : '3 KG',
+        'Idli Pindi 5' : '4 KG',
+        'Dosa Pindi 5' : '3 KG',
+        'Idli Pindi 6' : '4 KG',
+        'Dosa Pindi 6' : '3 KG'
     },
     'Raw Materials' : {
         'Idli Ravva' : '10 KG',
@@ -34,7 +44,7 @@ class dashboard extends Component {
                 {Object.keys(dashboardDB[typeName]).map((materialName , materialIndex) => (
                     <>
                     <div className = "padding-all"/>
-                    <Paper elevation={10} className = "pageStyle">
+                    <Paper elevation={5} className = "pageStyle">
                         {/* <div className = "textBody">{materialName}</div> */}
                     <h2>{materialName}</h2>
                     <h3>{dashboardDB[typeName][materialName]}</h3>
