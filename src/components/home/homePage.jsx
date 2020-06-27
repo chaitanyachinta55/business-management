@@ -1,7 +1,8 @@
 import React , { Component } from 'react';
 import {Route ,  BrowserRouter as Router, Redirect } from 'react-router-dom';
 
-import SideNavBar from '../sideNavBar/sideNavBar';
+// import SideNavBar from '../sideNavBar/sideNavBar';
+import SideNavBar from '../sideNavBar/NavigationBar';
 import EmployeeManagement from '../employeeModules/employeeManagement';
 import Dashboard from '../dashboard/dashboard';
 import EmployeeBook from '../employeeModules/employeeBook';
@@ -23,7 +24,10 @@ class Home extends Component{
 
     render(){
         return <div className = "homePage-container">
-
+{/* <section className="welcome">
+    <div className="introduction">Hi</div>
+</section> */}
+<section>
 <Router>
     <Route render={({ location, history }) => (
         <React.Fragment>
@@ -42,7 +46,7 @@ class Home extends Component{
     )}
     />
 </Router>
-
+</section>
         </div>;
     }
 }
